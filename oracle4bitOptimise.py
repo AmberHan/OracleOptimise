@@ -9,8 +9,8 @@
 # !@Author : DongHan Yang
 # !@File   : Oracle-4qbit.py
 import random
-from jbBlossom import jb_blossom
-from qjBlossom import qj_blossom
+from Blossom.jbBlossom import jb_blossom
+from Blossom.qjBlossom import qj_blossom
 from tfc import *
 from mode1 import mode1
 from mode2 import mode2

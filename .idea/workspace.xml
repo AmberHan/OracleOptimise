@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8957b43f-4ee0-4ac5-8cc6-70c8af099aa3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/oracleOptimise.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jbBlossom.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oracle4bitOptimise.py" beforeDir="false" afterPath="$PROJECT_DIR$/oracle4bitOptimise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qjBlossom.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/qjBlossom.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,12 +33,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="437">
-                <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+              <first_editor relative-caret-position="184">
+                <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
               </first_editor>
               <second_editor />
             </state>
@@ -55,25 +63,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/oracle4bitOptimise.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5635">
-              <caret line="245" column="27" selection-start-line="245" selection-start-column="27" selection-end-line="245" selection-end-column="27" />
-              <folding>
-                <element signature="e#268#281#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="126">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jbBlossom.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3496">
-              <caret line="153" column="28" selection-start-line="153" selection-start-column="28" selection-end-line="153" selection-end-column="28" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/Blossom/jbBlossom.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -130,9 +131,9 @@
         <option value="$PROJECT_DIR$/readWriteTxt.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/test/4bit_test/4.txt" />
-        <option value="$PROJECT_DIR$/oracle4bitOptimise.py" />
         <option value="$PROJECT_DIR$/oracleOptimse.py" />
         <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/oracle4bitOptimise.py" />
       </list>
     </option>
   </component>
@@ -154,6 +155,11 @@
             <path>
               <item name="OracleOptimise" type="b2602c69:ProjectViewProjectNode" />
               <item name="OracleOptimise" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OracleOptimise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OracleOptimise" type="462c0819:PsiDirectoryNode" />
+              <item name="Blossom" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -179,7 +185,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.oracleOptimse">
+  <component name="RunManager" selected="Python.oracle4bitOptimise">
     <configuration name="oracle4bitOptimise" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="oracleOptimise" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -287,8 +293,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.oracleOptimse" />
         <item itemvalue="Python.oracle4bitOptimise" />
+        <item itemvalue="Python.oracleOptimse" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.readWriteTxt" />
         <item itemvalue="Python.tfc" />
@@ -326,7 +332,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32962963" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.17862372" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.47947213" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.45241582" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -487,16 +493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oracle4bitOptimise.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5635">
-          <caret line="245" column="27" selection-start-line="245" selection-start-column="27" selection-end-line="245" selection-end-column="27" />
-          <folding>
-            <element signature="e#268#281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jbBlossom.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3496">
@@ -507,10 +503,20 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="437">
-            <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <first_editor relative-caret-position="184">
+            <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Blossom/jbBlossom.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oracle4bitOptimise.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
