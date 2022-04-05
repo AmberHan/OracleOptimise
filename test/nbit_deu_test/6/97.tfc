@@ -1,0 +1,21 @@
+.v c5,c4,c3,c2,c1,c0,t
+.i c5,c4,c3,c2,c1,c0,t
+.o c5,c4,c3,c2,c1,c0,t
+BEGIN
+t6 c4',c3',c2',c1,c0',t
+t6 c5',c4,c2',c1',c0',t
+t3 c5,c0',t
+t5 c5',c4',c3,c0',t
+t5 c5',c4',c3,c1,t
+t6 c5,c3,c2',c1,c0',t
+t5 c5',c3,c1',c0',t
+t6 c5,c4,c3',c2',c0,t
+t4 c3,c2',c1,t
+t4 c4,c2',c0,t
+t4 c5,c4',c2',t
+t4 c5',c2,c1',t
+t4 c5',c3,c2',t
+t2 c2,t
+t2 c3,t
+t1 ,t
+END

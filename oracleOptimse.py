@@ -1,13 +1,7 @@
-# !/usr/bin/env python
-# !-*- coding:utf-8 -*-
-# !@Time   : 2022/2/26 18:29
-# !@Author : DongHan Yang
-# !@File   : oracle4bitOptimise.py
-# !/usr/bin/env python
 # !-*- coding:utf-8 -*-
 # !@Time   : 2022/1/25 17:03
 # !@Author : DongHan Yang
-# !@File   : Oracle-4qbit.py
+# !@File   : OracleOptimse.py
 import random
 from Blossom.jbBlossom import jb_blossom
 from Blossom.qjBlossom import qj_blossom
@@ -16,6 +10,7 @@ from mode1 import mode1
 from mode2 import mode2
 import copy
 import math
+import time
 from readWriteTxt import *
 
 
@@ -27,8 +22,6 @@ class Oracle:
             self.oldGates = self.init(fx)
         else:
             self.oldGates = gates
-            # choose = 0
-
         self.oldgc, self.oldqc = self.calCost(self.oldGates)
         self.midGates = self.oldGates
         self.retGates = {}
@@ -60,7 +53,7 @@ class Oracle:
                 if cNums <= 9:
                     vc = cost2[cNums]
                 else:
-                    vc = 2 ** (cNums + 1) - 3
+                    vc = 12 * (cNums + 1) - 34
             elif self.n - cNums >= 1:
                 if cNums <= 9:
                     vc = cost1[cNums]
@@ -70,7 +63,7 @@ class Oracle:
                 if cNums <= 9:
                     vc = cost0[cNums]
                 else:
-                    vc = 12 * (cNums + 1) - 34
+                    vc = 2 ** (cNums + 1) - 3
             for value in values:
                 gc += 1
                 qc += vc
@@ -156,8 +149,7 @@ class Oracle:
             # 偶数个
             for i in range(len(value) // 2):
                 a, b = value[i * 2], value[2 * i + 1]
-                # 超过分解代价高
-                if bin(a ^ b).count('1') >= 10:
+                if bin(a ^ b).count('1') >= 10:  # xg
                     lenv = len(value) if len(value) % 2 == 0 else len(value) - 1
                     self.putGates(key, value[i * 2: lenv], self.retGates)
                     break
@@ -185,7 +177,6 @@ class Oracle:
         self.fx2 = gates[key]
         return gates
 
-    # 选择优化方式，1局部，2全局
     def set_choose(self, choose):
         if choose == 1:
             jb_blossom(self.midGates)
@@ -214,14 +205,21 @@ phase1Gc = 0
 phase1Qc = 0
 phase2Gc = 0
 phase2Qc = 0
+OldGc, OldQc, RG, RQ = 0, 0, 0, 0
 
 
-def myOracle(n, fx, choose):
+def myOracle(n, fx, deu_gro, index):
     global phase1Gc, phase1Qc, phase2Gc, phase2Qc
+    global OldGc, OldQc
+    if deu_gro == 0:
+        choose = 0
+        pathName = "nbit_deu_test/" + str(n) + '/' + str(index)
+    else:
+        choose = 2
+        pathName = "nbit_gro_test/" + str(n) + '/' + str(index)
     gate = Oracle(n, fx, choose)
-    Tfc(n, gate.oldGates, "init")
+    # Tfc(n, gate.oldGates, "init")
     g = gate.retGates
-    # print(gate.oldgc, gate.oldqc)
     # Tfc(n, g, "phase1")
     # print(f'阶段一局部后：', g)
     # print(gate.qc, gate.gc)
@@ -239,13 +237,25 @@ def myOracle(n, fx, choose):
     # Tfc(n, g, "phase2")  # Tfc(n, g, "phase2") #
     # print(f'阶段二局部后：', g)
     # print(gate.qc, gate.gc)
+    # Tfc(n, g, pathName) #生成存储的文件
     phase2Gc += gate.gc
     phase2Qc += gate.qc
 
 
-# 生成测试集
-def generateData(n):
-    times = 1
+def Old(n, fx, choose):
+    global OldGc, OldQc, RG, RQ
+    gate = Oracle(n, fx, choose)
+    OldGc += gate.oldgc  # 计算初始化线路代价
+    OldQc += gate.oldqc
+    RG += gate.gc
+    RQ += gate.qc
+    # print(OldGc // 100, RG // 100, OldQc // 100, RQ // 100)
+    # OldGc, RG, OldQc, RQ = 0, 0, 0, 0
+
+
+# DJ生成测试集
+def deu_generateData(n):
+    times = 100
     fxs = []
     while times > 0:
         fx = [0] * (2 ** (n - 1)) + [1] * (2 ** (n - 1))
@@ -261,20 +271,53 @@ def generateData(n):
     t.writeTxt(fxs)
 
 
+# Grover生成测试集
+def gro_generateData(n):
+    times = 100
+    fxs = []
+    while times > 0:
+        solutNum = random.randint(2, 2 ** (n - 2))
+        otherNum = 2 ** n - solutNum
+        fx = [0] * otherNum + [1] * solutNum
+        random.shuffle(fx)
+        if fx not in fxs:
+            fxs.append(fx)
+        else:
+            continue
+        times -= 1
+    print(fxs)
+    t = txt(str(n) + ".txt")
+    t.writeTxt(fxs)
+
+
+# 生成测试数据
+def generateData(deu_gro):
+    for i in range(4, 11):
+        if deu_gro == 0:
+            deu_generateData(i)
+        else:
+            gro_generateData(i)
+
+
 if __name__ == '__main__':
+    deu_gro = int(input("deut优化（0） or Grover优化(1):"))
+    # generateData(deu_gro)  # 生成100组数据
+    if deu_gro == 0:
+        txtPath = "nbit_deu_test\\"
+    else:
+        txtPath = "nbit_gro_test\\"
     for n in range(4, 11):
-        # generateData(n)   #生成100个数据
         # 读取数据
-        t = txt("nbit_test\\" + str(n) + ".txt")
+        start = time.time()
+        t = txt(txtPath + str(n) + ".txt")
         fxs = t.readTxt()
-        for fx in fxs:
-            myOracle(n, fx, 0)
-            # print("*" * 100)
-            # myOracle(n, fx, 1)
-            # print("*" * 100)
-            # myOracle(n, fx, 2)
-            # n = int(input("n:"))
+        for index in range(len(fxs)):
+            fx = fxs[index]
+            myOracle(n, fx, deu_gro, index)
+        end = time.time()
         print(str(n) + ":100个测试集平均代价：")
         print(phase1Gc // 100, phase1Qc // 100, phase2Gc // 100, phase2Qc // 100)
         phase1Gc, phase1Qc, phase2Gc, phase2Qc = 0, 0, 0, 0
+        useTime = end - start
+        print("ET耗时为：%s" % useTime)
         print("*" * 100)

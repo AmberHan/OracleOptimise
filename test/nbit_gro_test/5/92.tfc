@@ -1,0 +1,10 @@
+.v c4,c3,c2,c1,c0,t
+.i c4,c3,c2,c1,c0,t
+.o c4,c3,c2,c1,c0,t
+BEGIN
+t6 c4',c3',c2,c1',c0,t
+t4 c4,c3,c1',t
+t4 c4,c3,c2',t
+t5 c4,c2',c1,c0',t
+t4 c4',c2,c0,t
+END

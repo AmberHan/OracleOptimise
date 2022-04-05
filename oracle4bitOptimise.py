@@ -182,7 +182,6 @@ class Oracle:
         print(f'初始化的门：{gates[key]}')
         return gates
 
-    # 选择优化方式，1局部，2全局
     def set_choose(self, choose):
         if choose == 1:
             jb_blossom(self.midGates)
@@ -236,10 +235,6 @@ if __name__ == '__main__':
     random.shuffle(fx)
     myOracle(n, fx, 0)
     print("*" * 100)
-    myOracle(n, fx, 1)
-    print("*" * 100)
-    myOracle(n, fx, 2)
-
     # t = txt("4bit_test\\" + str(n) + ".txt")
     # fxs = t.readTxt()
     # for fx in fxs:

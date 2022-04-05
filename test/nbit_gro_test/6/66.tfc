@@ -1,0 +1,11 @@
+.v c5,c4,c3,c2,c1,c0,t
+.i c5,c4,c3,c2,c1,c0,t
+.o c5,c4,c3,c2,c1,c0,t
+BEGIN
+t7 c5,c4,c3',c2,c1,c0,t
+t5 c4',c2',c1',c0',t
+t5 c5,c4',c2',c1',t
+t6 c5',c4',c3,c2',c0',t
+t6 c5',c4,c3,c1',c0',t
+t6 c5,c3,c2',c1',c0,t
+END
